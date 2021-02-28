@@ -15,7 +15,7 @@ class HomeTableViewController: UITableViewController {
     var numOfTweets: Int!
     
     let myRefreshControl = UIRefreshControl()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -117,6 +117,11 @@ class HomeTableViewController: UITableViewController {
         cell.setFav(tweetArray[indexPath.row]["favorited"] as! Bool)
         cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
         cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool)
+        
+        let rtweetCount = tweetArray[indexPath.row]["retweet_count"] as! Int
+        let fCount = tweetArray[indexPath.row]["favorite_count"] as! Int
+        cell.setCount(cell.retweetCount, counter: rtweetCount)
+        cell.setCount(cell.favCount, counter: fCount)
         return cell
     }
     

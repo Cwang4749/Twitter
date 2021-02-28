@@ -113,6 +113,27 @@
                                                 <action selector="retweet:" destination="3g4-Et-VS2" eventType="touchUpInside" id="p5r-Vf-vZn"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA9-cz-joM">
+                                            <rect key="frame" x="314" y="126" width="30" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="2Gu-Ne-WE2"/>
+                                                <constraint firstAttribute="width" constant="30" id="hjS-Uo-QL2"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="qON-l4-V79"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axP-Ve-nEy">
+                                            <rect key="frame" x="354" y="126" width="30" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="Kf7-md-e2M"/>
+                                                <constraint firstAttribute="width" constant="30" id="gv2-1W-lha"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Fhw-1e-Y7n" firstAttribute="top" secondItem="YBi-lS-HC3" secondAttribute="bottom" constant="10" id="1pZ-NX-eSS"/>
@@ -123,10 +144,14 @@
                                         <constraint firstItem="unQ-U2-ouV" firstAttribute="leading" secondItem="tyB-Es-jho" secondAttribute="leadingMargin" id="Cs7-x1-VR9"/>
                                         <constraint firstItem="YBi-lS-HC3" firstAttribute="leading" secondItem="uu0-aO-WFM" secondAttribute="trailing" constant="10" id="Fgd-8y-LLl"/>
                                         <constraint firstItem="uu0-aO-WFM" firstAttribute="leading" secondItem="tyB-Es-jho" secondAttribute="leadingMargin" id="GJm-eJ-Xqy"/>
+                                        <constraint firstAttribute="bottom" secondItem="DA9-cz-joM" secondAttribute="bottom" constant="9" id="Ia7-dA-G3i"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="unQ-U2-ouV" secondAttribute="bottom" id="Ih7-Yd-cA4"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="ot0-zf-lWf" secondAttribute="bottom" constant="10" id="Jmx-wh-1dh"/>
                                         <constraint firstItem="YBi-lS-HC3" firstAttribute="top" secondItem="tyB-Es-jho" secondAttribute="top" id="KbW-4K-V8q"/>
+                                        <constraint firstItem="DA9-cz-joM" firstAttribute="centerX" secondItem="ot0-zf-lWf" secondAttribute="centerX" id="OXz-0I-2jJ"/>
+                                        <constraint firstItem="axP-Ve-nEy" firstAttribute="centerX" secondItem="Fhw-1e-Y7n" secondAttribute="centerX" id="SVh-W8-AoI"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Fhw-1e-Y7n" secondAttribute="bottom" constant="10" id="Syi-12-sbk"/>
+                                        <constraint firstItem="axP-Ve-nEy" firstAttribute="centerY" secondItem="DA9-cz-joM" secondAttribute="centerY" id="ZnW-YY-aZQ"/>
                                         <constraint firstItem="Fhw-1e-Y7n" firstAttribute="leading" secondItem="ot0-zf-lWf" secondAttribute="trailing" constant="10" id="eSr-Rw-Y5z"/>
                                         <constraint firstItem="unQ-U2-ouV" firstAttribute="top" secondItem="uu0-aO-WFM" secondAttribute="bottom" id="qzf-Hd-Tnv"/>
                                     </constraints>
@@ -136,7 +161,9 @@
                                     <outlet property="TweetContent" destination="YBi-lS-HC3" id="iVT-zX-9Rn"/>
                                     <outlet property="UsernameLabel" destination="unQ-U2-ouV" id="kUS-uj-jhW"/>
                                     <outlet property="favButton" destination="Fhw-1e-Y7n" id="URV-52-lb9"/>
+                                    <outlet property="favCount" destination="axP-Ve-nEy" id="qJn-0n-NM7"/>
                                     <outlet property="retweetButton" destination="ot0-zf-lWf" id="59k-jG-nme"/>
+                                    <outlet property="retweetCount" destination="DA9-cz-joM" id="Thg-kY-58L"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

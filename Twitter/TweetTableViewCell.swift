@@ -15,24 +15,32 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var TweetContent: UILabel!
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var retweetCount: UILabel!
+    @IBOutlet weak var favCount: UILabel!
     
     var favorited:Bool = false
     var tweetId:Int = -1
     var retweeted:Bool = false
+    var rCount:Int = -1
+    var fCount:Int = -1
     
-    func setFav(_ isFavorited:Bool)
+    func setCount(_ label:UILabel, counter:Int)
     {
-        favorited = isFavorited
-        if(favorited)
+        if(label == retweetCount)
         {
-            favButton.setImage(UIImage(named: "favor-icon-red"), for: UIControl.State.normal)
+            rCount = counter
         }
         else
         {
-            favButton.setImage(UIImage(named:"favor-icon"), for: UIControl.State.normal)
+            fCount = counter
+        }
+        label.text = "\(counter)"
+        if(counter > 1000)
+        {
+            let newCount = Float(counter / 1000)
+            label.text = "\(newCount)K"
         }
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,6 +51,23 @@ class TweetTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setFav(_ isFavorited:Bool)
+    {
+        favorited = isFavorited
+        if(favorited)
+        {
+            favButton.setImage(UIImage(named: "favor-icon-red"), for: UIControl.State.normal)
+            fCount += 1
+            setCount(favCount, counter: fCount)
+        }
+        else
+        {
+            favButton.setImage(UIImage(named:"favor-icon"), for: UIControl.State.normal)
+            fCount -= 1
+            setCount(favCount, counter: fCount)
+        }
     }
     
     @IBAction func favTweet(_ sender: Any) {
@@ -100,11 +125,17 @@ class TweetTableViewCell: UITableViewCell {
         {
             retweetButton.setImage(UIImage(named: "retweet-icon-green"), for: UIControl.State.normal)
             //retweetButton.isEnabled = false
+            
+            rCount += 1
+            setCount(retweetCount, counter: rCount)
         }
         else
         {
             retweetButton.setImage(UIImage(named: "retweet-icon"), for: UIControl.State.normal)
             //retweetButton.isEnabled = true
+            
+            rCount -= 1
+            setCount(retweetCount, counter: rCount)
         }
     }
 }
