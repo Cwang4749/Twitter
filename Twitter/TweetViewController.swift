@@ -8,12 +8,15 @@
 
 import UIKit
 
-class TweetViewController: UIViewController {
+class TweetViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var tweetTextView: UITextView!
+    @IBOutlet weak var charCountLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tweetTextView.delegate = self
         
         //Displays keyboard and cursor for user
         tweetTextView.becomeFirstResponder()
@@ -40,6 +43,27 @@ class TweetViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    //character count:
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if range.length + range.location > tweetTextView.text.count
+        {
+            return false
+        }
+        
+        let new = tweetTextView.text.count + text.count - range.length
+        changeCount(new)
+        return new <= 280
+    }
+    
+    func changeCount(_ counter:Int)
+    {
+        if counter <= 280
+        {
+            charCountLabel.text = "\(280 - counter) Characters Left"
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
